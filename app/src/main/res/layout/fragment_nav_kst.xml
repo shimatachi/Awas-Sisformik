@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".KartuStudiTetap">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="10">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="228dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/semester_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Semester 6"
+                    android:textSize="26dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/mata_kuliah"
+                        android:layout_width="125dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Mata Kuliah" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="" />
+
+                    <TextView
+                        android:id="@+id/jumlah_sks"
+                        android:layout_width="311dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="170dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:text="SKS" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="350dp"
+                    android:layout_height="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/rounded_oval" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/matkul1"
+                        android:layout_width="168dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/rounded_oval_white"
+                        android:gravity="center"
+                        android:padding="7dp"
+                        android:text="Manajement Proyek SI" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="" />
+
+                    <TextView
+                        android:id="@+id/sks1"
+                        android:layout_width="311dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="135dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="2"
+                        android:text="3" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/matkul2"
+                        android:layout_width="168dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/rounded_oval_white"
+                        android:gravity="center"
+                        android:padding="7dp"
+                        android:text="Mobile Developer" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="" />
+
+                    <TextView
+                        android:id="@+id/sks2"
+                        android:layout_width="311dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="135dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="2"
+                        android:text="2" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/matkul3"
+                        android:layout_width="168dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/rounded_oval_white"
+                        android:gravity="center"
+                        android:padding="7dp"
+                        android:text="Metodologi Penelitian" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="" />
+
+                    <TextView
+                        android:id="@+id/sks3"
+                        android:layout_width="311dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="135dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="2"
+                        android:text="2" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/matkul4"
+                        android:layout_width="168dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/rounded_oval_white"
+                        android:gravity="center"
+                        android:padding="7dp"
+                        android:text="Etika Profesi" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="" />
+
+                    <TextView
+                        android:id="@+id/sks4"
+                        android:layout_width="311dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="135dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="2"
+                        android:text="2" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/matkul5"
+                        android:layout_width="168dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/rounded_oval_white"
+                        android:gravity="center"
+                        android:padding="7dp"
+                        android:text="Mobile Game Dev" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="" />
+
+                    <TextView
+                        android:id="@+id/sks5"
+                        android:layout_width="311dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="135dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="2"
+                        android:text="4" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/matkul6"
+                        android:layout_width="168dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/rounded_oval_white"
+                        android:gravity="center"
+                        android:padding="7dp"
+                        android:text="Evaluasi Audit SI" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="" />
+
+                    <TextView
+                        android:id="@+id/sks6"
+                        android:layout_width="311dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="135dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="2"
+                        android:text="4" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/matkul7"
+                        android:layout_width="168dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/rounded_oval_white"
+                        android:gravity="center"
+                        android:padding="7dp"
+                        android:text="Sistem Cerdas" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="" />
+
+                    <TextView
+                        android:id="@+id/sks7"
+                        android:layout_width="311dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="135dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="2"
+                        android:text="3" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/matkul8"
+                        android:layout_width="168dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/rounded_oval_white"
+                        android:gravity="center"
+                        android:padding="7dp"
+                        android:text="Pemrogramam Web" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="" />
+
+                    <TextView
+                        android:id="@+id/sks8"
+                        android:layout_width="311dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="135dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="2"
+                        android:text="4" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="350dp"
+                    android:layout_height="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_oval" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/total"
+                        android:layout_width="125dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Total" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="" />
+
+                    <TextView
+                        android:id="@+id/total_sks"
+                        android:layout_width="311dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="175dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:text="24" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="350dp"
+                    android:layout_height="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_oval" />
+
+                <TextView
+                    android:id="@+id/note"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Note:" />
+
+                <TextView
+                    android:id="@+id/note_isi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Untuk Lebih Lengkap Silahkan Mengunduh KST." />
+
+                <Button
+                    android:id="@+id/btnunduh"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="100dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/rounded_oval_black"
+                    android:text="Unduh KST"
+                    android:textColor="@color/white" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

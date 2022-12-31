@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    android:label="@string/berita"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.myapplication.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/nilai2"
+            app:destination="@id/nav_nilai"
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_pembayaran"
+            app:destination="@id/nav_pembayaran"
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_kst"
+            app:destination="@id/nav_kst"
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@animator/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@animator/nav_default_pop_enter_anim" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_absensi"
+            app:destination="@id/nav_absensi" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.myapplication.ui.News.GalleryFragment"
+        android:label="Berita"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.example.myapplication.ui.Profile.SlideshowFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_slideshow" >
+        <action
+            android:id="@+id/action_nav_slideshow_to_nav_login2"
+            app:destination="@id/nav_login" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_kst"
+        android:name="com.example.myapplication.ui.Kst.nav_kst"
+        android:label="@string/KST"
+        tools:layout="@layout/fragment_nav_kst" />
+    <fragment
+        android:id="@+id/nav_kalender"
+        android:name="com.example.myapplication.ui.Kalender.Kalender"
+        android:label="@string/kalender"
+        tools:layout="@layout/fragment_kalender" />
+    <fragment
+        android:id="@+id/nav_jadwal"
+        android:name="com.example.myapplication.ui.Jadwal_Kuliah.JadwalKuliah"
+        android:label="@string/jadwal_kuliah"
+        tools:layout="@layout/fragment_jadwal_kuliah" />
+    <fragment
+        android:id="@+id/nav_nilai"
+        android:name="com.example.myapplication.ui.Nilai_Mahasiswa.NilaiMahasiswa"
+        android:label="@string/nilai_mahasiswa"
+        tools:layout="@layout/fragment_nilai_mahasiswa" >
+        <action
+            android:id="@+id/action_nav_nilai_to_nav_nilai2"
+            app:destination="@id/nav_nilai2" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_pembayaran"
+        android:name="com.example.myapplication.ui.Pembayaran.Pembayaran"
+        android:label="@string/pembayaran"
+        tools:layout="@layout/fragment_pembayaran" />
+
+    <activity
+        android:id="@+id/nav_absensi"
+        android:name="com.example.myapplication.ui.absensi.Absensi"
+        android:label="Absensi"
+        tools:layout="@layout/activity_absensi" />
+
+    <activity
+        android:id="@+id/nav_nilai2"
+        android:name="com.example.myapplication.ui.nilai.Nilai"
+        android:label="Nilai"
+        tools:layout="@layout/activity_nilai" />
+
+    <activity
+        android:id="@+id/nav_login"
+        android:name="com.example.myapplication.ui.Login"
+        android:label="Login"
+        tools:layout="@layout/activity_login" />
+</navigation>

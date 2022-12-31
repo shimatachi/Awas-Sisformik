@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_baseline_newspaper_24"
+            android:title="@string/berita" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_baseline_person_24"
+            android:title="@string/profile" />
+        <item
+            android:id="@+id/nav_absensi"
+            android:icon="@drawable/a"
+            android:title="Absensi" />
+        <item
+            android:id="@+id/nav_nilai"
+            android:icon="@drawable/b"
+            android:title="@string/nilai_mahasiswa" />
+        <item
+            android:id="@+id/nav_kst"
+            android:icon="@drawable/c"
+            android:title="@string/KST" />
+        <item
+            android:id="@+id/nav_pembayaran"
+            android:icon="@drawable/d"
+            android:title="@string/pembayaran" />
+        <item
+            android:id="@+id/nav_kalender"
+            android:icon="@drawable/e"
+            android:title="@string/kalender" />
+        <item
+            android:id="@+id/nav_jadwal"
+            android:icon="@drawable/f"
+            android:title="@string/jadwal_kuliah" />
+    </group>
+
+    <item android:title="@string/sign_out">
+        <menu>
+            <item
+                android:id="@+id/nav_signout"
+                android:icon="@drawable/g"
+                android:title="@string/sign_out" />
+        </menu>
+    </item>
+</menu>

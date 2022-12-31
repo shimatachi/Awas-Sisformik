@@ -1,0 +1,79 @@
+package com.example.myapplication.ui.Profile;
+
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+
+import com.example.myapplication.Login;
+import com.example.myapplication.R;
+import com.example.myapplication.databinding.FragmentSlideshowBinding;
+
+public class SlideshowFragment extends Fragment {
+
+    private FragmentSlideshowBinding binding;
+    SharedPreferences sharedPreferences ;
+    SharedPreferences.Editor editor;
+
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+//        SlideshowViewModel slideshowViewModel =
+//                new ViewModelProvider(this).get(SlideshowViewModel.class);
+
+        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
+
+        TextView tvnama = (TextView) root.findViewById(R.id.nama);
+        TextView tvjk = (TextView) root.findViewById(R.id.jk);
+        TextView tvnim = (TextView) root.findViewById(R.id.nim);
+        TextView tvjurusan = (TextView) root.findViewById(R.id.jurusan);
+        TextView tvhp = (TextView) root.findViewById(R.id.hp);
+        TextView tvttl = (TextView) root.findViewById(R.id.tl);
+        TextView tvalamat = (TextView) root.findViewById(R.id.alamat);
+
+        sharedPreferences = getActivity().getSharedPreferences("LoginFile", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        tvnim.setText(sharedPreferences.getString("NIM", "Error loading nim"));
+        tvjk.setText(sharedPreferences.getString("JK", "Error loading nim"));
+        tvnama.setText(sharedPreferences.getString("Nama_Mahasiwa", "Error loading nama"));
+        tvjurusan.setText(sharedPreferences.getString("Jurusan", "Error loading nama"));
+        tvhp.setText(sharedPreferences.getString("No_Telp", "Error loading nama"));
+        tvttl.setText(sharedPreferences.getString("Tanggal_Lahir", "Error loading nama"));
+        tvalamat.setText(sharedPreferences.getString("Alamat", "Error loading nama"));
+
+
+        binding.signOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editor.remove("LoggedIn");
+//                editor.putString("isLoggedIn", "false");
+                editor.commit();
+                Intent intent = new Intent(root.getContext(), Login.class);
+                root.getContext().startActivity(intent);
+                getActivity().finish();
+//                Navigation.findNavController(view).navigate(R.id.action_nav_slideshow_to_nav_login2);
+            }
+        });
+
+//        final TextView textView = binding.textSlideshow;
+//        slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        return root;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
+}
