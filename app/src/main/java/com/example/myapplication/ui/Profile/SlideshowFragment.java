@@ -38,19 +38,21 @@ public class SlideshowFragment extends Fragment {
         TextView tvnim = (TextView) root.findViewById(R.id.nim);
         TextView tvjurusan = (TextView) root.findViewById(R.id.jurusan);
         TextView tvhp = (TextView) root.findViewById(R.id.hp);
+        TextView tvemail = (TextView) root.findViewById(R.id.email);
         TextView tvttl = (TextView) root.findViewById(R.id.tl);
         TextView tvalamat = (TextView) root.findViewById(R.id.alamat);
 
         sharedPreferences = getActivity().getSharedPreferences("LoginFile", MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
-        tvnim.setText(sharedPreferences.getString("NIM", "Error loading nim"));
-        tvjk.setText(sharedPreferences.getString("JK", "Error loading nim"));
-        tvnama.setText(sharedPreferences.getString("Nama_Mahasiwa", "Error loading nama"));
-        tvjurusan.setText(sharedPreferences.getString("Jurusan", "Error loading nama"));
-        tvhp.setText(sharedPreferences.getString("No_Telp", "Error loading nama"));
-        tvttl.setText(sharedPreferences.getString("Tanggal_Lahir", "Error loading nama"));
-        tvalamat.setText(sharedPreferences.getString("Alamat", "Error loading nama"));
+        tvnim.setText(sharedPreferences.getString("NIM", "Error loading NIM"));
+        tvjk.setText(sharedPreferences.getString("JK", "Error loading Jenis_Kelamin"));
+        tvnama.setText(sharedPreferences.getString("Nama_Mahasiwa", "Error loading Nama_Mhs"));
+        tvjurusan.setText(sharedPreferences.getString("Jurusan", "Error loading Jurusan"));
+        tvhp.setText(sharedPreferences.getString("No_Telp", "Error loading No_Telp"));
+        tvemail.setText(sharedPreferences.getString("Email", "Error loading Email"));
+        tvttl.setText(sharedPreferences.getString("Tanggal_Lahir", "Error loading Tanggal_Lahir"));
+        tvalamat.setText(sharedPreferences.getString("Alamat", "Error loading Alamat"));
 
 
         binding.signOut.setOnClickListener(new View.OnClickListener() {
