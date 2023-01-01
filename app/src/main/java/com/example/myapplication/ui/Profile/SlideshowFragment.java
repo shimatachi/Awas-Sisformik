@@ -18,6 +18,9 @@ import androidx.navigation.Navigation;
 import com.example.myapplication.Login;
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentSlideshowBinding;
+import com.squareup.picasso.Picasso;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SlideshowFragment extends Fragment {
 
@@ -41,6 +44,8 @@ public class SlideshowFragment extends Fragment {
         TextView tvemail = (TextView) root.findViewById(R.id.email);
         TextView tvttl = (TextView) root.findViewById(R.id.tl);
         TextView tvalamat = (TextView) root.findViewById(R.id.alamat);
+        CircleImageView circleImageView = (CircleImageView) root.findViewById(R.id.profile);
+
 
         sharedPreferences = getActivity().getSharedPreferences("LoginFile", MODE_PRIVATE);
         editor = sharedPreferences.edit();
@@ -53,6 +58,9 @@ public class SlideshowFragment extends Fragment {
         tvemail.setText(sharedPreferences.getString("Email", "Error loading Email"));
         tvttl.setText(sharedPreferences.getString("Tanggal_Lahir", "Error loading Tanggal_Lahir"));
         tvalamat.setText(sharedPreferences.getString("Alamat", "Error loading Alamat"));
+        Picasso.get()
+                .load(sharedPreferences.getString("Foto", "eror"))
+                .into(circleImageView);
 
 
         binding.signOut.setOnClickListener(new View.OnClickListener() {

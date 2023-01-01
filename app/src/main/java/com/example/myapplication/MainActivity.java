@@ -18,6 +18,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.databinding.ActivityMainBinding;
+import com.squareup.picasso.Picasso;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -62,13 +65,17 @@ public class MainActivity extends AppCompatActivity {
         View headerView = navigationView.getHeaderView(0);
         TextView navNama = (TextView) headerView.findViewById(R.id.navNama);
         TextView navNim = (TextView) headerView.findViewById(R.id.navNim);
+        CircleImageView circleImageView = (CircleImageView) headerView.findViewById(R.id.profile);
+
 
         sharedPreferences = getSharedPreferences("LoginFile", MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
         navNama.setText(sharedPreferences.getString("Nama_Mahasiwa", "Error loading nama"));
         navNim.setText(sharedPreferences.getString("NIM", "Error loading nim"));
-
+        Picasso.get()
+                .load(sharedPreferences.getString("Foto", "eror"))
+                .into(circleImageView);
 
 
     }

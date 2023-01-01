@@ -19,8 +19,11 @@ import androidx.navigation.Navigation;
 import com.example.myapplication.databinding.FragmentHomeBinding;
 import com.example.myapplication.ui.absensi.Absensi;
 import com.example.myapplication.R;
+import com.squareup.picasso.Picasso;
 
-public class HomeFragment extends Fragment {
+import de.hdodenhof.circleimageview.CircleImageView;
+
+public class    HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
     SharedPreferences sharedPreferences ;
@@ -43,12 +46,16 @@ public class HomeFragment extends Fragment {
         Button btnpembayaran = (Button) rootview.findViewById(R.id.pembayaran);
         Button btnkst = (Button) rootview.findViewById(R.id.kst);
         Button btnabsensi = (Button) rootview.findViewById(R.id.absensi);
+        CircleImageView circleImageView = (CircleImageView) rootview.findViewById(R.id.profile);
 
         sharedPreferences = getActivity().getSharedPreferences("LoginFile", MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
         tvnim.setText(sharedPreferences.getString("NIM", "Error loading nim"));
         tvnama.setText(sharedPreferences.getString("Nama_Mahasiwa", "Error loading nama"));
+        Picasso.get()
+                .load(sharedPreferences.getString("Foto", "eror"))
+                .into(circleImageView);
 
 
 
