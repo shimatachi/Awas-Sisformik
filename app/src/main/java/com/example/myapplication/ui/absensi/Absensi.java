@@ -1,49 +1,84 @@
 package com.example.myapplication.ui.absensi;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.myapplication.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.security.PrivateKey;
 import java.util.ArrayList;
 
 public class Absensi extends AppCompatActivity {
     private static final String TAG = "Absensi";
+    private RecyclerView mRecycleview;
+    private MatakuliahAdapter mMatakuliahAdapter;
+    private ArrayList<Matakuliah> mMatakuliahList;
+    private RequestQueue mRequestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_absensi);
-
         setTitle("Absensi");
 
-        Log.d(TAG, "onCreate: Started");
-        ListView mListView = (ListView) findViewById(R.id.listview);
+        mRecycleview = findViewById(R.id.recyclerview);
+        mRecycleview.setHasFixedSize(true);
+        mRecycleview.setLayoutManager(new LinearLayoutManager(this));
 
-        Matakuliah Manajemen_Proyek_Sistem_Informasi =  new Matakuliah("Manajemen Proyek SIstem Informasi","Total","4");
-        Matakuliah Pengembangan_Aplikasi_Mobile =  new Matakuliah("Pengembangan Aplikasi Mobile","Total","4");
-        Matakuliah Metodologi_Penelitian =  new Matakuliah("Metodologi Penelitian","Total","4");
-        Matakuliah Etika_Profesi =  new Matakuliah("Etika Profesi","Total","4");
-        Matakuliah Mobile_Game_Developer =  new Matakuliah("Mobile Game Developer","Total","4");
-        Matakuliah Evaluasi_dan_Audit_SI =  new Matakuliah("Evaluasi & Audit SI","Total","4");
-        Matakuliah Sistem_Cerdas =  new Matakuliah("Sistem Cerdas","Total","4");
-        Matakuliah Pemrograman_Web =  new Matakuliah("Pemrograman Web","Total","4");
+        mMatakuliahList = new ArrayList<>();
 
-        ArrayList<Matakuliah> matakuliahList = new ArrayList<>();
-        matakuliahList.add(Manajemen_Proyek_Sistem_Informasi);
-        matakuliahList.add(Pengembangan_Aplikasi_Mobile);
-        matakuliahList.add(Metodologi_Penelitian);
-        matakuliahList.add(Etika_Profesi);
-        matakuliahList.add(Mobile_Game_Developer);
-        matakuliahList.add(Evaluasi_dan_Audit_SI);
-        matakuliahList.add(Sistem_Cerdas);
-        matakuliahList.add(Pemrograman_Web);
+        mRequestQueue = Volley.newRequestQueue(this);
+        parseJSON();
+    }
 
-        MatakuliahListAdapter adapter = new MatakuliahListAdapter(this, R.layout.adapter_view_layout, matakuliahList);
-        mListView.setAdapter(adapter);
+    private void parseJSON() {
+        String url = "http://192.168.56.1/bukanAPI/Absensi2.php";
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONArray jsonArray = response.getJSONArray("data");
+
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject hit = jsonArray.getJSONObject(i);
+
+                                String namamatkul = hit.getString("Nama_Matakuliah");
+
+                                mMatakuliahList.add(new Matakuliah(namamatkul));
+                            }
+                            mMatakuliahAdapter = new MatakuliahAdapter(Absensi.this, mMatakuliahList);
+                            mRecycleview.setAdapter(mMatakuliahAdapter);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        mRequestQueue.add(request);
     }
 }

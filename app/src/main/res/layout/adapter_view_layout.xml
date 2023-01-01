@@ -2,16 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="100">
+    android:layout_height="wrap_content"
+    android:weightSum="100"
+    android:padding="4dp"
+    >
 
     <TextView
         android:layout_width="800dp"
         android:layout_height="60dp"
-        android:id="@+id/textView1"
+        android:id="@+id/mtakuliah"
         android:layout_weight="66.7"
         android:padding="19dp"
         android:gravity="left"
+        android:text="Mata Kuliah Dummy"
+        android:background="@drawable/kotak"
         />
 
     <LinearLayout
@@ -24,14 +28,19 @@
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:id="@+id/textView2"/>
+            android:id="@+id/total"
+            android:text="Total"
+            android:background="@drawable/kotak"
+            />
 
         <TextView
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:id="@+id/textView3"
-            android:layout_below="@+id/textView2"
+            android:id="@+id/jumlahabsensi"
+            android:text="Jmlh Dummy"
+            android:layout_below="@+id/total"
+            android:background="@drawable/kotak"
             />
 
     </LinearLayout>
