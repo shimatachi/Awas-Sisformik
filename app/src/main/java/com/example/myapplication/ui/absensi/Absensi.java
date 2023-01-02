@@ -48,7 +48,7 @@ public class Absensi extends AppCompatActivity {
     }
 
     private void parseJSON() {
-        String url = "http://192.168.56.1/bukanAPI/Absensi2.php";
+        String url = "http://coba.galariks.my.id/bukanAPI/Data_Absensi.php";
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
