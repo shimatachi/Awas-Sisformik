@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="1.1in"
+        android:layout_margin="10dp"
+        android:elevation="5dp"
+        app:cardCornerRadius="5dp"
+        app:cardBackgroundColor="@color/white"
+        >
+
+        <ImageView
+            android:layout_width=".2in"
+            android:layout_height=".2in"
+            android:layout_margin="20dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/calendar">
+        </ImageView>
+
+        <TextView
+            android:layout_width=".6in"
+            android:layout_height=".15in"
+            android:layout_marginLeft=".4in"
+            android:layout_marginTop=".14in"
+            android:text="Semester 8"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:id="@+id/label_semester">
+        </TextView>
+
+        <TextView
+            android:layout_width=".85in"
+            android:layout_height=".15in"
+            android:layout_marginTop=".14in"
+            android:layout_marginLeft="1.5in"
+            android:text=""
+            android:textStyle="bold"
+            android:textColor="#FF0000"
+            android:textSize="15dp"
+            android:id="@+id/belumterverifikasi"
+            >
+        </TextView>
+
+        <TextView
+            android:layout_width=".85in"
+            android:layout_height=".15in"
+            android:layout_marginTop=".14in"
+            android:layout_marginLeft="1.5in"
+            android:text=""
+            android:textStyle="bold"
+            android:textColor="#5BE33C"
+            android:textSize="15dp"
+            android:id="@+id/terverifikasi"
+            >
+        </TextView>
+
+        <Button
+            android:layout_width="1.25in"
+            android:layout_height=".3in"
+            android:layout_marginTop=".38in"
+            android:layout_marginLeft=".12in"
+            android:backgroundTint="#E9E9E9"
+            android:text="Upload Bukti Pembayaran"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="10dp">
+        </Button>
+
+        <TextView
+            android:layout_width=".52in"
+            android:layout_height=".14in"
+            android:layout_marginLeft="1.45in"
+            android:layout_marginTop=".5in"
+            android:text="No File Uploaded"
+            android:textColor="@color/black"
+            android:textSize="11dp"
+            android:id="@+id/upload">
+        </TextView>
+
+        <ImageView
+            android:layout_width=".25in"
+            android:layout_height=".2in"
+            android:layout_marginLeft="2in"
+            android:layout_marginTop=".45in"
+            android:src="@drawable/upload">
+        </ImageView>
+
+        <TextView
+            android:layout_width=".6in"
+            android:layout_height=".15in"
+            android:layout_marginLeft=".13in"
+            android:layout_marginTop=".7in"
+            android:text="Total Biaya"
+            android:textColor="@color/black"
+            android:textSize="15dp">
+        </TextView>
+
+        <TextView
+            android:layout_width=".8in"
+            android:layout_height=".15in"
+            android:layout_marginLeft=".13in"
+            android:layout_marginTop=".85in"
+            android:text="Rp. 3.750.000.00 ,-"
+            android:textColor="@color/black"
+            android:textSize="15dp">
+        </TextView>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

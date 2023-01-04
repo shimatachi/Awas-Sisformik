@@ -65,7 +65,7 @@ public class JadwalKuliah extends Fragment {
     }
 
     private void parseJSON2() {
-        String url = "http://192.168.56.1/bukanAPI/Data_Jadwal.php";
+        String url = "http://coba.galariks.my.id/bukanAPI/Data_Jadwal.php";
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
