@@ -63,6 +63,7 @@ public class Login extends AppCompatActivity {
                 String sPassword = qPassword.getText().toString();
 
                 Loginactivity(sUsername,sPassword);
+
 /*
                 if (binding.etUsername.getText().toString().isEmpty()) {
                     binding.etUsername.setError("Please Enter Username");
@@ -74,8 +75,8 @@ public class Login extends AppCompatActivity {
                 */
             }
         });
-
     }
+
 
     private void Loginactivity(final String username, final String password) {
         if (checkNetworkConnection()) {

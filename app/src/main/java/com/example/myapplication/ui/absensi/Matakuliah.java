@@ -2,27 +2,20 @@ package com.example.myapplication.ui.absensi;
 
 public class Matakuliah {
     private String namamatkul;
-//    private String totalabsensi;
+    private String totalabsensi;
 
-    public Matakuliah(String namamatkul) {
+    public Matakuliah(String namamatkul, String totalabsensi) {
         this.namamatkul = namamatkul;
-//        this.totalabsensi = totalabsensi;
+        this.totalabsensi = totalabsensi;
     }
 
     public String getNamamatkul() {
         return namamatkul;
     }
 
-//    public void setNamamatkul(String namamatkul) {
-//        this.namamatkul = namamatkul;
-//    }
 
-//    public String getTotalabsensi() {
-//        return totalabsensi;
-//    }
-
-//    public void setTotalabsensi(String totalabsensi) {
-//        this.totalabsensi = totalabsensi;
-//    }
+    public String getTotalabsensi() {
+        return totalabsensi;
+    }
 }
 

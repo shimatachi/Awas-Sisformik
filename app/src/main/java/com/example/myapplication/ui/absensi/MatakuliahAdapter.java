@@ -33,9 +33,11 @@ public class MatakuliahAdapter extends RecyclerView.Adapter<MatakuliahAdapter.Ma
         Matakuliah currentItem = mMatakuliahListl.get(position);
 
         String namamatkul = currentItem.getNamamatkul();
-//        String totalabsensi = currentItem.getTotalabsensi();
+        String totalabsensi = currentItem.getTotalabsensi();
 
         holder.mTvMatkul.setText(namamatkul);
+        holder.mTvJmlhabsensi.setText(totalabsensi);
+
 
     }
 
@@ -46,11 +48,13 @@ public class MatakuliahAdapter extends RecyclerView.Adapter<MatakuliahAdapter.Ma
 
     public class MatakuliahViewHolder extends RecyclerView.ViewHolder {
         public TextView mTvMatkul;
-//        public TextView mTvJmlhabsensi;
+        public TextView mTvJmlhabsensi;
 
         public MatakuliahViewHolder(@NonNull View itemView) {
             super(itemView);
             mTvMatkul = itemView.findViewById(R.id.mtakuliah);
+            mTvJmlhabsensi = itemView.findViewById(R.id.jumlahabsensi);
+
 
         }
     }
