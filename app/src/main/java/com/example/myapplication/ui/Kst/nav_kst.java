@@ -48,12 +48,12 @@ public class nav_kst extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        View rootview = inflater.inflate(R.layout.fragment_gallery, container, false);
+        View rootview = inflater.inflate(R.layout.fragment_nav_kst, container, false);
 
         sharedPreferences = getActivity().getSharedPreferences("LoginFile", MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
-        mRecycleview = rootview.findViewById(R.id.recyclerviewberita);
+        mRecycleview = rootview.findViewById(R.id.recyclerviewkst);
         mRecycleview.setHasFixedSize(true);
         mRecycleview.setLayoutManager(new LinearLayoutManager(getActivity()));
 
