@@ -4,111 +4,91 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.myapplication.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class GalleryFragment extends Fragment {
 
-    Button news1, news2;
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public GalleryFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PembayaranFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static GalleryFragment newInstance(String param1, String param2) {
-        GalleryFragment fragment = new GalleryFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-
-    }
+    private RecyclerView mRecycleview;
+    private BeritaAdapater mBeritaAdapter;
+    private ArrayList<Berita> mBeritaList;
+    private RequestQueue mRequestQueue;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+
+        View rootview = inflater.inflate(R.layout.fragment_gallery, container, false);
+
+
+        mRecycleview = rootview.findViewById(R.id.recyclerviewberita);
+        mRecycleview.setHasFixedSize(true);
+        mRecycleview.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        mBeritaList = new ArrayList<>();
+
+        mRequestQueue = Volley.newRequestQueue(getActivity());
+        parseJSON();
+        return rootview;
     }
 
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-//        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_gallery, container, false);
+    private void parseJSON() {
+        String url = "http://coba.galariks.my.id/bukanAPI/Data_Berita.php";
 
-    //    View rootView = inflater.inflate(R.layout.fragment_home,
-//            container, false);
-//    Button button = (Button) rootView.findViewById(R.id.button1);
-//        button.setOnClickListener(new View.OnClickListener() {
-//        @Override
-//        public void onClick(View v) {
-//            updateDetail();
-//        }
-//    });
-//        return rootView;
-//}
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_gallery,
-                container, false);
-        Button news1 = (Button) rootView.findViewById(R.id.btn_selengkapnya_news1);
-        Button news2 = (Button) rootView.findViewById(R.id.btn_selengkapnya_news2);
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONArray jsonArray = response.getJSONArray("data");
+
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject hit = jsonArray.getJSONObject(i);
+
+                                String judulnews = hit.getString("Judul");
+                                String tglterbit = hit.getString("Tanggal_Terbit");
 
 
-        news2.setOnClickListener(new View.OnClickListener() {
+                                mBeritaList.add(new Berita(judulnews, tglterbit));
+                            }
+                            mBeritaAdapter = new BeritaAdapater(getActivity(), mBeritaList);
+                            mRecycleview.setAdapter(mBeritaAdapter);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
             @Override
-            public void onClick(View view) {
-                Fragment thirdFrag = new NewsWebviewFragment2();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.container, thirdFrag).commit();
-
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
             }
         });
 
-        news1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Fragment secondFrag = new NewsWebviewFragment();
-                FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
-                fm.replace(R.id.container, secondFrag).commit();
-            }
-        });
-        return rootView;
+        mRequestQueue.add(request);
     }
-
-
-
 }
+
+
+
 
 
 
