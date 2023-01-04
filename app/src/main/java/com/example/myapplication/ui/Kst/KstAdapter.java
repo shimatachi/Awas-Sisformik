@@ -16,6 +16,7 @@ import com.example.myapplication.ui.absensi.MatakuliahAdapter;
 import java.util.ArrayList;
 
 public class KstAdapter extends RecyclerView.Adapter<KstAdapter.KstViewHolder> {
+
     private Context mContext;
     private ArrayList<Kst> mKstList;
 
