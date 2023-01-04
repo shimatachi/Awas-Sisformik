@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:orientation="horizontal">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:elevation="5dp"
+            android:padding="20dp"
+            app:cardCornerRadius="20dp"
+            app:strokeColor="@color/gray"
+            app:strokeWidth="1dp">
+
+            <TextView
+                android:layout_width="190dp"
+                android:layout_height="70dp"
+                android:layout_marginHorizontal="3dp"
+                android:layout_marginTop="1dp"
+                android:padding="5dp"
+                android:paddingStart="10dp"
+                android:id="@+id/jadwalmatkul"
+                android:text="Mobile Game Developer" />
+
+            <View
+                android:layout_width="190dp"
+                android:layout_height="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/rounded_oval" />
+
+            <TextView
+                android:layout_width="190dp"
+                android:layout_height="100dp"
+                android:layout_marginHorizontal="3dp"
+                android:layout_marginTop="1dp"
+                android:padding="40dp"
+                android:paddingStart="10dp"
+                android:id="@+id/jammatkul"
+                android:text="Rabu, 07:30 - 10:00" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.14" />
+
+        <TextView
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="33dp"
+            android:layout_weight="0.15"
+            android:id="@+id/kodematkul"
+            android:text="SI13208" />
+
+        <TextView
+            android:layout_width="16dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="33dp"
+            android:layout_weight="0.13"
+            android:id="@+id/ruangan"
+            android:text="B.2.3" />
+
+    </LinearLayout>
+
+</LinearLayout>

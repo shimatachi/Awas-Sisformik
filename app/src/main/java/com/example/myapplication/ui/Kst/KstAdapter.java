@@ -10,8 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.ui.absensi.Matakuliah;
-import com.example.myapplication.ui.absensi.MatakuliahAdapter;
 
 import java.util.ArrayList;
 
