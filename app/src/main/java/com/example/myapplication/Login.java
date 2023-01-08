@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -37,6 +38,10 @@ public class Login extends AppCompatActivity {
     SharedPreferences sharedPreferences ;
     SharedPreferences.Editor editor;
 
+    private CheckBox mCheckBoxRmember;
+    private  SharedPreferences mPrefs;
+    private static final String PREFS_NAME = "PrefsFile";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,10 +50,16 @@ public class Login extends AppCompatActivity {
         btnlogin = findViewById(R.id.btnLogin);
         qUsername = findViewById(R.id.etUsername);
         qPassword = findViewById(R.id.etPassword);
+        mCheckBoxRmember = (CheckBox) findViewById(R.id.checkBoxRememberMe);
+
         progressDialog = new ProgressDialog(Login.this);
 
         sharedPreferences = getSharedPreferences("LoginFile" , MODE_PRIVATE);
         editor = sharedPreferences.edit();
+
+        mPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+
+        getPreferencesData();
 
 //        if (sharedPreferences.getString("isLoggedIn" , "").equals("true")){
 //            startActivity(new Intent(Login.this , MainActivity.class));
@@ -64,6 +75,22 @@ public class Login extends AppCompatActivity {
 
                 Loginactivity(sUsername,sPassword);
 
+                if (mCheckBoxRmember.isChecked()){
+                    Boolean boolIsChecked = mCheckBoxRmember.isChecked();
+                    SharedPreferences.Editor editor = mPrefs.edit();
+                    editor.putString("pref_name", qUsername.getText().toString());
+                    editor.putString("pref_pass", qPassword.getText().toString());
+                    editor.putBoolean("pref_check", boolIsChecked);
+                    editor.apply();
+
+//                    Toast.makeText(getApplicationContext(),"username dan password berhasil disimpan",Toast.LENGTH_SHORT).show();
+                    qUsername.getText().clear();
+                    qPassword.getText().clear();
+
+                }else {
+                    mPrefs.edit().clear().apply();
+                }
+
 /*
                 if (binding.etUsername.getText().toString().isEmpty()) {
                     binding.etUsername.setError("Please Enter Username");
@@ -77,58 +104,75 @@ public class Login extends AppCompatActivity {
         });
     }
 
+    private void getPreferencesData() {
+        SharedPreferences sp = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        if(sp.contains("pref_name")){
+            String u = sp.getString("pref_name", "not found.");
+            qUsername.setText(u.toString());
+        }
+        if(sp.contains("pref_pass")){
+            String p = sp.getString("pref_pass", "not found.");
+            qPassword.setText(p.toString());
+        }
+        if(sp.contains("pref_check")){
+            Boolean b = sp.getBoolean("pref_check", false);
+            mCheckBoxRmember.setChecked(b);
+        }
+
+    }
+
 
     private void Loginactivity(final String username, final String password) {
         if (checkNetworkConnection()) {
-        progressDialog.show();
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, DbContact.SERVER_LOGIN_URL,
-                response -> {
-                    try {
-                        JSONObject jsonObject = new JSONObject(response);
-                        String resp = jsonObject.getString("server_response");
-                        if (resp.equals("[{\"status\":\"OK\"}]")) {
-                            Toast.makeText(getApplicationContext(),"Login Berhasil", Toast.LENGTH_SHORT).show();
-                            getUserDetail(username);
+            progressDialog.show();
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, DbContact.SERVER_LOGIN_URL,
+                    response -> {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String resp = jsonObject.getString("server_response");
+                            if (resp.equals("[{\"status\":\"OK\"}]")) {
+                                Toast.makeText(getApplicationContext(),"Login Berhasil", Toast.LENGTH_SHORT).show();
+                                getUserDetail(username);
 //                            editor.putString("isLoggedIn", "true");
 //                            editor.commit();
 //                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 //                            startActivity(intent);
 //                            finish();
 
-                        } else {
-                            Toast.makeText(getApplicationContext(), resp,Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(getApplicationContext(), resp,Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+
+                            e.printStackTrace();
                         }
-                    } catch (JSONException e) {
+                    }, error -> {
 
-                        e.printStackTrace();
-                    }
-                }, error -> {
+            }) {
+                @Override
+                protected Map<String, String> getParams() {
+                    Map<String, String> params = new HashMap<>();
+                    params.put("Username", username);
+                    params.put("Password", password);
+                    return params;
+                }
+            };
 
-                }) {
-            @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<>();
-                params.put("Username", username);
-                params.put("Password", password);
-                return params;
-            }
-        };
+            VolleyConnection.getInstance(Login.this).addToRequestQue(stringRequest);
 
-        VolleyConnection.getInstance(Login.this).addToRequestQue(stringRequest);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    progressDialog.cancel();
+                }
+            }, 200);
+        } else
+        {
+            Toast.makeText(getApplicationContext(),"Koneksi Gagal", Toast.LENGTH_SHORT).show();
+        }
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                progressDialog.cancel();
-            }
-        }, 200);
-    } else
-    {
-        Toast.makeText(getApplicationContext(),"Koneksi Gagal", Toast.LENGTH_SHORT).show();
+
     }
-
-
-}
 
     private void getUserDetail(String username) {
         if (checkNetworkConnection()) {
