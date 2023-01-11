@@ -111,8 +111,6 @@ public class GalleryFragment extends Fragment implements BeritaAdapater.OnItemCl
 
         intent.putExtra(EXTRA_JUDUL, clickedItem.getJudulnews());
         intent.putExtra(EXTRA_ISI, clickedItem.getIsi());
-        Toast.makeText(getContext(), "Test Upload", Toast.LENGTH_SHORT).show();
-
         startActivity(intent);
     }
 }
