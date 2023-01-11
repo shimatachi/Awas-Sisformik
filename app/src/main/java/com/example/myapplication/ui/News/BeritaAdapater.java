@@ -59,7 +59,7 @@ public class BeritaAdapater extends RecyclerView.Adapter<BeritaAdapater.BeritaVi
     public class BeritaViewHolder extends RecyclerView.ViewHolder {
         public TextView mTvJudul;
         public TextView mTvTglTerbit;
-//        public Button readmore;
+        public Button readmore;
 
 
 
@@ -67,9 +67,9 @@ public class BeritaAdapater extends RecyclerView.Adapter<BeritaAdapater.BeritaVi
             super(itemView);
             mTvJudul = itemView.findViewById(R.id.judul_news1);
             mTvTglTerbit = itemView.findViewById(R.id.tgl_news1);
-//            readmore = itemView.findViewById(R.id.btn_selengkapnya_news1);
+            readmore = itemView.findViewById(R.id.btn_selengkapnya_news1);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
+            readmore.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (mListener != null) {
