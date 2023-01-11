@@ -2,15 +2,20 @@ package com.example.myapplication.ui.News;
 
 public class Berita {
 
-    private String judulnews;
-    private String tglterbit;
+    private final String judulnews;
+    private String isi;
+    private final String tglterbit;
 
-    public Berita(String judulnews, String tglterbit) {
+    public Berita(String judulnews, String tglterbit, String isi) {
         this.judulnews = judulnews;
+        this.isi = isi;
         this.tglterbit = tglterbit;
 
     }
 
+    public String getIsi() {
+        return isi;
+    }
 
     public String getJudulnews() {
         return judulnews;

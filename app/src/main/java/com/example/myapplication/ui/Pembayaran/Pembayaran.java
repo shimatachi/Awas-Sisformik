@@ -4,15 +4,14 @@ import static android.content.Context.MODE_PRIVATE;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -23,8 +22,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.myapplication.DbContact;
 import com.example.myapplication.R;
-import com.example.myapplication.ui.Kst.Kst;
-import com.example.myapplication.ui.Kst.KstAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,6 +39,7 @@ public class Pembayaran extends Fragment {
     private RequestQueue mRequestQueue;
     SharedPreferences sharedPreferences ;
     SharedPreferences.Editor editor;
+
 
 
     @Override
@@ -62,7 +60,9 @@ public class Pembayaran extends Fragment {
         mRequestQueue = Volley.newRequestQueue(getActivity());
         parseJSON(sharedPreferences.getString("NIM", ""));
         return rootview;
+
     }
+
 
     private void parseJSON(String NIM) {
         if (NIM.equals("fail"))
@@ -110,4 +110,5 @@ public class Pembayaran extends Fragment {
 
         Volley.newRequestQueue(getActivity()).add(stringRequest);
     }
+
 }

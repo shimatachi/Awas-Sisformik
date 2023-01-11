@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,8 +15,17 @@ import com.example.myapplication.R;
 import java.util.ArrayList;
 
 public class BeritaAdapater extends RecyclerView.Adapter<BeritaAdapater.BeritaViewHolder>{
-    private Context mContext;
-    private ArrayList<Berita> mBeritaList;
+    private final Context mContext;
+    private final ArrayList<Berita> mBeritaList;
+    private OnItemClickListener mListener;
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        mListener = listener;
+    }
 
     public BeritaAdapater(Context context, ArrayList<Berita> beritaList) {
         mContext = context;
@@ -49,14 +59,27 @@ public class BeritaAdapater extends RecyclerView.Adapter<BeritaAdapater.BeritaVi
     public class BeritaViewHolder extends RecyclerView.ViewHolder {
         public TextView mTvJudul;
         public TextView mTvTglTerbit;
+//        public Button readmore;
+
 
 
         public BeritaViewHolder(@NonNull View itemView) {
             super(itemView);
             mTvJudul = itemView.findViewById(R.id.judul_news1);
             mTvTglTerbit = itemView.findViewById(R.id.tgl_news1);
+//            readmore = itemView.findViewById(R.id.btn_selengkapnya_news1);
 
-
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (mListener != null) {
+                        int position = getBindingAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            mListener.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 }
