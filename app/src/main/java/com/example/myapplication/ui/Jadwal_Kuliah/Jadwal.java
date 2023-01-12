@@ -5,12 +5,16 @@ public class Jadwal {
     private String jadwal;
     private String kodematkul;
     private String ruangan;
+    private String jam;
 
-    public Jadwal(String matkul, String jadwal, String kodematkul, String ruangan) {
+
+    public Jadwal(String matkul, String jadwal, String kodematkul, String ruangan, String jam) {
         this.matkul = matkul;
         this.jadwal = jadwal;
         this.kodematkul = kodematkul;
         this.ruangan = ruangan;
+        this.jam = jam;
+
     }
 
     public String getMatkul() {
@@ -28,4 +32,9 @@ public class Jadwal {
     public String getRuangan() {
         return ruangan;
     }
+
+    public String getJam() {
+        return jam;
+    }
+
 }

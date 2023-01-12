@@ -23,7 +23,7 @@
 
                 <TextView
                     android:id="@+id/mata_kuliah"
-                    android:layout_width="170dp"
+                    android:layout_width="165dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="55dp"
                     android:layout_marginTop="10dp"
@@ -33,7 +33,7 @@
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:layout_weight="0.04"
+                    android:layout_weight="0.02"
                     android:text="Kode" />
 
                 <TextView
@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_weight="0.2"
-                    android:text="Ruang" />
+                    android:text="Ruangan" />
 
 
             </LinearLayout>

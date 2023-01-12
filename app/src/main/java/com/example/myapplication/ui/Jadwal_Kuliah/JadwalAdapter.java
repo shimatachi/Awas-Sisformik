@@ -37,13 +37,14 @@ public class JadwalAdapter extends RecyclerView.Adapter<JadwalAdapter.JadwalView
         String jadwal = currentItem.getJadwal();
         String kodematkul = currentItem.getKodematkul();
         String ruangan = currentItem.getRuangan();
+        String jam = currentItem.getJam();
+
 
         holder.mTvMatkul.setText(matkul);
         holder.mTvJadwal.setText(jadwal);
         holder.mTvKodeMatkul.setText(kodematkul);
         holder.mTvRuangan.setText(ruangan);
-
-
+        holder.mTvJam.setText(jam);
 
     }
 
@@ -57,13 +58,16 @@ public class JadwalAdapter extends RecyclerView.Adapter<JadwalAdapter.JadwalView
         public TextView mTvJadwal;
         public TextView mTvKodeMatkul;
         public TextView mTvRuangan;
+        public TextView mTvJam;
 
         public JadwalViewHolder(@NonNull View itemView) {
             super(itemView);
             mTvMatkul = itemView.findViewById(R.id.jadwalmatkul);
-            mTvJadwal = itemView.findViewById(R.id.jammatkul);
+            mTvJadwal = itemView.findViewById(R.id.hari);
             mTvKodeMatkul = itemView.findViewById(R.id.kodematkul);
             mTvRuangan = itemView.findViewById(R.id.ruangan);
+            mTvJam = itemView.findViewById(R.id.jammatkul);
+
 
 
         }
