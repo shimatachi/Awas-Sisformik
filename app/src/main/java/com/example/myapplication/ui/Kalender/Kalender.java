@@ -17,7 +17,7 @@ public class Kalender extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View rootview = inflater.inflate(R.layout.fragment_kalender, container, false);
+        View rootview = inflater.inflate(R.layout.adapter_pembayaran, container, false);
 
 
         return rootview;
